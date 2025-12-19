@@ -1,137 +1,156 @@
-# 🌐 Praktikum #5 — Web Service Engineering
+# 🌐 Praktikum — RESTful CRUD API dengan Express
 
-Membangun RESTful CRUD API berbasis Express.js dengan struktur modular.
-Project ini mengimplementasikan operasi CRUD untuk resource `products`.
+Praktikum ini membahas **pembangunan RESTful API sederhana** menggunakan **Node.js dan Express.js** dengan menerapkan operasi dasar **CRUD (Create, Read, Update, Delete)**. Pengujian endpoint dilakukan menggunakan **Postman / Thunder Client** untuk memastikan setiap request–response berjalan sesuai standar HTTP.
 
-**Topik:** Membangun RESTful CRUD API dengan Express.js
+**Topik:** RESTful CRUD API (Express.js)
 
 ---
 
 ## 🧑‍🎓 Informasi Mahasiswa
 
-| Informasi        | Data                                           |
-|------------------|------------------------------------------------|
-| Mata Kuliah      | Web Service Engineering                        |
-| Dosen Pengampu   | Muhayat, M.IT                                  |
-| Praktikum        | P5 - Membangun RESTful CRUD API dengan Express |
-| Nama Mahasiswa   | Husna Norgina                                  |
-| NIM              | 230104040056                                   |
-| Kelas            | TI23B                                          |
-| Tanggal Praktikum| 03-11-2025                                     |
+| Informasi          | Data                                                       |
+|--------------------|------------------------------------------------------------|
+| Mata Kuliah        | Web Service Engineering                                    |
+| Dosen Pengampu     | Muhayat, M.IT                                              |
+| Praktikum / Proyek | P5 – RESTful CRUD API                                      |
+| Nama Mahasiswa     | Husna Norgina                                              |
+| NIM                | 230104040056                                               |
+| Kelas              | TI23B                                                      |
+| Repo GitHub        | https://github.com/husna-norgina/P5-CRUD-REST-230104040056 |
+| Tanggal Praktikum  | 03-11-2025                                                 |
 
 ---
 
 ## 🎯 Tujuan Praktikum
 
 1. Membangun RESTful API sederhana menggunakan Express.js.
-2. Menerapkan operasi dasar CRUD (Create, Read, Update, Delete).
-3. Menggunakan HTTP method & status code secara tepat.
-4. Mengetahui struktur dasar modular server API pada Node.js.
-5. Menghasilkan response JSON konsisten dan valid.
+2. Mengimplementasikan operasi CRUD (Create, Read, Update, Delete).
+3. Menggunakan HTTP Method dan Status Code secara tepat.
+4. Memahami struktur dasar API server berbasis Node.js yang modular.
 
 ---
 
 ## 🛠 Tools & Environment
 
-* Node.js 18+
-* npm
-* Express.js
-* VSCode
-* Nodemon (Dev Dependency)
-* Postman / Thunder Client
-* Git (opsional)
+### **Tools yang Digunakan**
+- Node.js 18+
+- Express.js
+- Visual Studio Code
+- Nodemon
+- Postman / Thunder Client
+- Git & GitHub
 
 ---
 
-## 🧩 Skenario Sistem
+## 🧱 Arsitektur Sistem
 
-Membangun RESTful API untuk resource: **products**
+**Alur Sistem:**
+- Client (Postman / Thunder Client)
+- API Server (Express.js)
+- Router (`products.routes.js`)
+- Data sementara (`products.data.js`)
+- Response JSON ke client
 
-Endpoint Base:
-
-```
-/api/products
-```
-
-CRUD implemented:
-
-| Method | Path              | Deskripsi          |
-| ------ | ----------------- | ------------------ |
-| GET    | /api/products     | Ambil semua produk |
-| GET    | /api/products/:id | Ambil produk by ID |
-| POST   | /api/products     | Tambah produk      |
-| PUT    | /api/products/:id | Update produk      |
-| DELETE | /api/products/:id | Hapus produk       |
+Arsitektur ini menggunakan pola **Client–Server** dengan pemisahan logika routing dan data.
 
 ---
 
-## ⚙️ Langkah Implementasi Singkat
-
-1. Membuat folder project `P5-CRUD-REST-230104040056`
-2. `npm init -y`
-3. Install dependency:
-
-```
-npm install express
-npm install nodemon --save-dev
-```
-
-4. Struktur folder:
-
-```
-src/
- ├─ routes/
- ├─ data/
- └─ app.js
-```
-
-5. Tulis CRUD logic pada `products.routes.js`
-6. Register route di `app.js`:
-
-```
-app.use('/api/products', productRoutes)
-```
-
-7. Run server:
-
-```
-npm run dev
-```
+## 🔁 Pengujian & Implementasi API
 
 ---
 
-## 🧾 Evidence Pengujian Endpoint (Postman)
+### 🔵 1. GET — Ambil Semua Produk
 
-| Endpoint                 | Status                   |
-| ------------------------ | ------------------------ |
-| GET /api/products        | ✅ 200 OK                 |
-| GET /api/products/:id    | ✅ 200 OK / 404 Not Found |
-| POST /api/products       | ✅ 201 Created            |
-| PUT /api/products/:id    | ✅ 200 OK / 404 Not Found |
-| DELETE /api/products/:id | ✅ 200 OK / 404 Not Found |
+| Method | Endpoint         | Keterangan                    |
+|--------|------------------|-------------------------------|
+| GET    | `/api/products`  | Menampilkan seluruh produk    |
 
-> Evidence screenshot disimpan di folder: `./evidence/`
+**Hasil:**
+![alt text](1-get-all.png)
+Server merespons status `200 OK`.
 
 ---
 
-## 📊 Analisis
+### 🔵 2. GET — Ambil Produk Berdasarkan ID
 
-API CRUD berjalan dengan benar, status response sesuai standar HTTP. Struktur project modular membuat maintain & scale lebih mudah. Validasi & error handling masih basic, improvement akan dilakukan pada praktikum selanjutnya.
+| Method | Endpoint               | Keterangan                       |
+|--------|------------------------|----------------------------------|
+| GET    | `/api/products/{id}`   | Menampilkan produk tertentu      |
+
+**Hasil:**
+![alt text](2-get-by-id.png)
+Server merespons status `200 OK` atau `404 Not Found`.
+
+---
+
+### 🔵 3. POST — Tambah Produk Baru
+
+| Method | Endpoint         | Keterangan            |
+|--------|------------------|-----------------------|
+| POST   | `/api/products`  | Menambahkan produk    |
+
+**Hasil:**
+![alt text](3-post.png)
+Server merespons status `201 Created`.
+
+---
+
+### 🔵 4. PUT — Update Data Produk
+
+| Method | Endpoint               | Keterangan              |
+|--------|------------------------|-------------------------|
+| PUT    | `/api/products/{id}`   | Mengubah data produk    |
+
+**Hasil:**
+![alt text](4-put.png) 
+Server merespons status `200 OK` atau `404 Not Found`.
+
+---
+
+### 🔵 5. DELETE — Hapus Produk
+
+| Method | Endpoint               | Keterangan          |
+|--------|------------------------|---------------------|
+| DELETE | `/api/products/{id}`   | Menghapus produk    |
+
+**Hasil:**
+![alt text](5-delete.png)
+Server merespons status `200 OK` atau `404 Not Found`.
+
+---
+
+## 📄 Laporan Praktikum 5
+
+[230104040056_Husna Norgina_P5.pdf](<evidence/230104040056_Husna Norgina_P5.pdf>)
+
+---
+
+> Semua screenshot hasil uji endpoint dan laporan praktikum disimpan pada folder:  
+> 📂 `./evidence/`
+
+---
+
+## 📊 Analisis Praktikum
+
+- Seluruh endpoint CRUD berjalan sesuai prinsip REST.
+- Status code HTTP digunakan dengan tepat.
+- Response API dikembalikan dalam format JSON terstruktur.
+- Validasi input dan error handling masih sederhana dan dapat dikembangkan lebih lanjut.
 
 ---
 
 ## ✅ Kesimpulan
 
-RESTful CRUD API berhasil dibuat menggunakan Express.js dan seluruh endpoint teruji berhasil.
+Berdasarkan praktikum yang telah dilakukan, RESTful CRUD API berhasil dibangun menggunakan Express.js. Hasil pengujian menunjukkan bahwa seluruh endpoint berfungsi dengan baik untuk operasi Create, Read, Update, dan Delete. Setiap request menghasilkan response JSON yang terstruktur serta status code HTTP yang sesuai dengan standar REST.
 
 ---
 
-## 📌 Checklist Praktikum
+## 📌 Catatan
 
-* ✅ Struktur project sesuai
-* ✅ Endpoint CRUD lengkap dan berfungsi
-* ✅ Response JSON valid
-* ✅ Status code sesuai standar REST
-* ✅ Evidence pengujian tersedia
+- Data disimpan sementara (in-memory).
+- Pengujian dilakukan menggunakan Postman.
+- API dikembangkan untuk keperluan pembelajaran.
 
 ---
+
+📝 *Disusun oleh Husna Norgina (230104040056) — Praktikum 5 Web Service Engineering*
