@@ -1,4 +1,4 @@
-# 🌐 Praktikum — RESTful CRUD API dengan Express
+# 🌐 Praktikum 5 — RESTful CRUD API dengan Express
 
 Praktikum ini membahas **pembangunan RESTful API sederhana** menggunakan **Node.js dan Express.js** dengan menerapkan operasi dasar **CRUD (Create, Read, Update, Delete)**. Pengujian endpoint dilakukan menggunakan **Postman / Thunder Client** untuk memastikan setiap request–response berjalan sesuai standar HTTP.
 
