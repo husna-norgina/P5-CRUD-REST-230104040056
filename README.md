@@ -66,7 +66,10 @@ Arsitektur ini menggunakan pola **Client–Server** dengan pemisahan logika rout
 | GET    | `/api/products`  | Menampilkan seluruh produk    |
 
 **Hasil:**
-![alt text](1-get-all.png)
+
+![GET All Products](evidence/1-get-all.png)
+
+Menampilkan seluruh data produk dalam format JSON.
 Server merespons status `200 OK`.
 
 ---
@@ -78,7 +81,10 @@ Server merespons status `200 OK`.
 | GET    | `/api/products/{id}`   | Menampilkan produk tertentu      |
 
 **Hasil:**
-![alt text](2-get-by-id.png)
+
+![GET Product by ID](evidence/2-get-by-id.png)
+
+Menampilkan satu data produk berdasarkan ID tertentu.
 Server merespons status `200 OK` atau `404 Not Found`.
 
 ---
@@ -90,7 +96,10 @@ Server merespons status `200 OK` atau `404 Not Found`.
 | POST   | `/api/products`  | Menambahkan produk    |
 
 **Hasil:**
-![alt text](3-post.png)
+
+![POST Product](evidence/3-post.png)
+
+Menambahkan data produk baru ke dalam sistem.
 Server merespons status `201 Created`.
 
 ---
@@ -102,7 +111,10 @@ Server merespons status `201 Created`.
 | PUT    | `/api/products/{id}`   | Mengubah data produk    |
 
 **Hasil:**
-![alt text](4-put.png) 
+
+![PUT Product](evidence/4-put.png)
+
+Memperbarui data produk yang sudah tersimpan berdasarkan ID.
 Server merespons status `200 OK` atau `404 Not Found`.
 
 ---
@@ -114,7 +126,10 @@ Server merespons status `200 OK` atau `404 Not Found`.
 | DELETE | `/api/products/{id}`   | Menghapus produk    |
 
 **Hasil:**
-![alt text](5-delete.png)
+
+![DELETE Product](evidence/5-delete.png)
+
+Menghapus data produk berdasarkan ID tertentu.
 Server merespons status `200 OK` atau `404 Not Found`.
 
 ---
